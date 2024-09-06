@@ -2,18 +2,18 @@ import connection from "../../../database/dbconn"
 import {z} from "zod";
 import User from "@/models/user"
 import {sendMail} from "@/utils/nodemailer"
+import { NextResponse } from "next/server";
 
 connection();
 
-export async function GET(){
-    console.log(req.nextUrl.pathname);
-   return Response.json({data:"success"})
-} 
 
 
 export async function POST(request){
+    
+    
+    
     try {
-        const {username,password,email} = await  request.json()
+        
         const varifyData = z.object({
             username:z.string().min(3,"minimum name length is 3").max(20,"max name length is 20"),
             email:z.string().email(),
@@ -21,13 +21,14 @@ export async function POST(request){
         })
 
         const varifyUserData  =  await varifyData.parseAsync({username,email,password})
+        
         console.log(username,email,password);
         
 
        
       const existUser = await User.findOne({$or:[{email},{userName:username}]});
 
-     if(existUser) return Response.json({msg:"user already exist"},{status:200})
+     if(existUser) return NextResponse.json({msg:"user already exist",flag:false},{status:200})
 
         const user = await User.create({userName:username,email,password});
 
@@ -36,13 +37,13 @@ export async function POST(request){
         );
         await sendMail({email,emailType:"VERIFY",userId:newuser._id})
 
-            return Response.json({msg:"user created successfully",data:newuser},{status:201});
+            return NextResponse.json({msg:`mail send successfully to : ${email} please verify `,data:newuser,flag:"true"},{status:201});
             
        
     } catch (error) {
         console.log(error);
         
-   return Response.json({msg:error.message},{status:500})
+   return NextResponse.json({msg:error.message,flag:false},{status:500})
         
     }
 } 
