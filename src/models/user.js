@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken"
 
 const userSchema = new mongoose.Schema({
   userName: {
@@ -20,10 +21,15 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  role:{
+    type:String,
+    default:"user"
+  },
   forgotPasswordToken: String,
   forgotPasswordTokenExpire: Date,
   verifyToken: String,
   verifyTokenExpire: Date,
+  
 });
 
 userSchema.pre("save", async function (next) {

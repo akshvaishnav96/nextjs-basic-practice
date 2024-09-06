@@ -1,0 +1,52 @@
+
+
+
+
+.button_Bg_yellow{
+background-color:#f58a0f;
+}
+
+.button_Bg_yellow:hover{
+background-color:#f58a0f86;
+}
+
+.button_border{
+    border: 2px solid white;
+   
+}
+
+.button_border:hover{
+    background-color: rgba(197, 197, 197, 0.123);
+}
+
+
+
+.m2_p2{
+    margin:5px ;
+    padding:5px;
+}
+
+.newLaunchBg{
+    background: #8080809c;
+}
+
+.cardShadow{
+    box-shadow: 0px 0px 5px #cdcacab8;
+}
+
+.cardShadow:hover{
+box-shadow: 0px 0px 8px gray;
+}
+
+.contflex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card {
+    flex: 2 2 100%;
+  }
+  @media (min-width: 768px) {
+    .card {
+      flex: 1 1 33%;
+    }
+  }

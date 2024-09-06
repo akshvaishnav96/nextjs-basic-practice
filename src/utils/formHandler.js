@@ -6,7 +6,8 @@ import User from "@/models/user";
 import { sendMail } from "@/utils/nodemailer";
 import dbConn from "@/database/dbconn";
 import "react-toastify/dist/ReactToastify.css";
-import jwt from "jsonwebtoken";
+import generateAccessTokenAndRefreshToken from "@/utils/generat_Access_Refresh_Token"
+import { cookies } from "next/headers";
 
 dbConn();
 const signUphandler = async (formData) => {
@@ -99,7 +100,19 @@ let existUser;
 
   
 
+  const { accessToken, refreshToken, userId } = await generateAccessTokenAndRefreshToken(existUser._id)
 
+  const cookieStore = cookies();
+  cookieStore.set('access_token', accessToken, {
+    httpOnly: true,
+    expires: new Date(Date.now() + 8400000), // Sets the cookie expiration time
+    path: '/',
+    // Ensure secure flag is set in production
+
+
+  });
+
+ return redirect(`/`);
 
 
 };
