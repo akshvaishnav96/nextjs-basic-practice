@@ -2,7 +2,9 @@ import InputElem from "@/components/InputElem";
 import InputLable from "@/components/InputLable";
 import FormSubmitBtn from "@/components/FormSubmitBtn";
 import { loginHandler } from "../../../utils/formHandler";
+
 export default function Login() {
+
   const inputElem = [
     {
       lablefor: "email_or_password",
@@ -25,6 +27,7 @@ export default function Login() {
   ];
 
   return (
+
     <form action={loginHandler}>
       {inputElem.map((item, index) => (
         <div className="mb-4" key={index}>
@@ -44,7 +47,7 @@ export default function Login() {
         </a>
       </div>
 
-      <FormSubmitBtn text={"Login"} />
+      <FormSubmitBtn text={"Login"}/>
     </form>
   );
 }

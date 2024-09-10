@@ -13,15 +13,15 @@ export async function POST(req) {
       throw new Error("Invalid token");
     }
 
-    const existUser = await User.findOne({ email: verifyCookie.email });
+    const existUser = await User.findOne({ email: verifyCookie.email }).select("-password -isVarified");
 
     if (!existUser) {
-      throw new Error("user dosent access according to the token");
+      throw new Error("user dosnt access according to the token");
     }
 
     let role = existUser.role;
 
-    return Response.json({ status: true, role: role });
+    return Response.json({ status: true, role: role,user:existUser });
   } catch (error) {
     console.log(error);
     return Response.json({ status: false, role: "" });

@@ -47,7 +47,6 @@ export const sendMail = async ({email, emailType, userId}) => {
       );
     }
 
-    console.log(user);
     
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",

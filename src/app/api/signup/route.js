@@ -22,7 +22,6 @@ export async function POST(request){
 
         const varifyUserData  =  await varifyData.parseAsync({username,email,password})
         
-        console.log(username,email,password);
         
 
        

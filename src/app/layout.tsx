@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/user/Footer"
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,10 +16,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const hideFooterPath = [
+    "/admin",
+    "/agent",
+    "/agency",
+    "/owner",
+    "/access-denied",
+    "/login",
+    "/signup",
+    "/not-found"
+  ]
   return (
     <html lang="en">
 
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+
+          {children}
+       <Footer hideFooterPath = {hideFooterPath}/>
+      </body>
     </html>
   );
 }

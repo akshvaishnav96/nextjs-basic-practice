@@ -42,9 +42,7 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.verifyPassword = async function (password) {
   try {
     const verifyPass = await bcrypt.compare(password, this.password);
-    if (verifyPass) {
-      console.log("password verified : " + verifyPass);
-    }
+  
 
     return verifyPass;
   } catch (error) {

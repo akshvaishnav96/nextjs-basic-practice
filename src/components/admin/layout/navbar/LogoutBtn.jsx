@@ -1,19 +1,15 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
+import {logoutHandler} from "@/utils/logoutHandler"
 
 export default function LogoutBtn({ text }) {
   const router = useRouter();
-  async function logoutHandler() {
-    let res = await fetch("/api/logout", { method: "POST" });
-    let data = await res.json();
-
-    if (data.status) router.refresh();
-  }
+  
 
   return (
     <div
-      onClick={logoutHandler}
+      onClick={()=>logoutHandler(router)}
       className="flex items-center mr-4 hover:text-blue-100"
     >
       <span className="inline-flex mr-1">

@@ -8,7 +8,7 @@ export default function RedirectBackBtn({ text = "Go Back" }) {
   const router = useRouter(); // Initialize the router
 
   const handleClick = () => {
-    router.back(); // Go back to the previous page
+    router.push("/"); // Go back to the previous page
   };
 
   return (
