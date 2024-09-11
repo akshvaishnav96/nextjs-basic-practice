@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 export default function ListItemName({ href, name, src }) {
   const pathName = usePathname();
 
+  
+
   return (
     <li>
       <Link

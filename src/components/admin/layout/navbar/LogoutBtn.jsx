@@ -10,7 +10,8 @@ export default function LogoutBtn({ text }) {
   return (
     <div
       onClick={()=>logoutHandler(router)}
-      className="flex items-center mr-4 hover:text-blue-100"
+      className="flex items-center mr-4 hover:text-blue-100 cursor-pointer"
+
     >
       <span className="inline-flex mr-1">
         <svg

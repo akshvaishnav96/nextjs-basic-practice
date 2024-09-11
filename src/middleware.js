@@ -22,7 +22,7 @@ export async function middleware(request) {
   let status;
 
   if (token) {
-    ({ role: role, status: status } = await verifyLoginToken(request.nextUrl.origin, token));
+    ({ role: role, status: status } = await verifyLoginToken());
   }
 
   const pathname = request.nextUrl.pathname;
@@ -40,7 +40,7 @@ export async function middleware(request) {
       );
     }
     if (role && roleBasedRoutes[role]) {
-      console.log();
+ 
       
       if (pathname.slice(1).startsWith(role)) {
         return NextResponse.next();

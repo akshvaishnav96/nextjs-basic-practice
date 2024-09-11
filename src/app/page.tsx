@@ -22,12 +22,18 @@ import Testamonial2 from "@/components/user/homePage/Testamonial2";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import UserLoginProvider from "@/components/Providers/UserLoginProvider";
+import { cookies } from "next/headers";
+
 
 
 
 export default function Home() {
+ 
   return (
     <>
+
+
         <ShowMsg />
       <Navbar />
       {/* hero section */}
@@ -61,6 +67,6 @@ export default function Home() {
 
       {/* testamonial 2 */}
       <Testamonial2 />
-    </>
+      </>
   );
 }

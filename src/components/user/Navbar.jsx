@@ -12,7 +12,7 @@ const token = cookieStore.get("access_token");
 
   return (
 
-    <UserLoginProvider token={token}>
+   
 
 
     <nav className="bg-gray-800">
@@ -136,6 +136,6 @@ const token = cookieStore.get("access_token");
         </div>
       </div>
     </nav>
-    </UserLoginProvider>
+
   );
 }

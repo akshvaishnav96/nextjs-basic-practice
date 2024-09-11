@@ -1,13 +1,22 @@
 "use server";
 
-export async function verifyLoginToken(request,token){
+import { cookies } from "next/headers";
+
+export async function verifyLoginToken(){
+  const tokenData = cookies().get("access_token")
+ const token = tokenData?.value
+
+ if(!token){
+return {role:"",status:"",user:""}
+ }
+  
     const tokenVerify = await fetch(
-        `${request}/api/verify-token`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/verify-token`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            token: token,
+           token:token
           },
         }
       );
@@ -16,6 +25,7 @@ export async function verifyLoginToken(request,token){
     let  role = tokenVerifyData.role;
      let status = tokenVerifyData.status;
      let user = tokenVerifyData.user
+     
       return {role,status,user}
   
 }

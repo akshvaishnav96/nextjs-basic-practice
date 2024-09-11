@@ -1,9 +1,22 @@
-import React, { Suspense } from "react";
+"use client";
+
+import React, { Suspense, useContext,useState,useEffect } from "react";
 import HeadingListItem from "./HeadingListItem";
 import ListItemName from "./ListItemName";
 import { v4 as uuidv4 } from "uuid";
+import {userLoginContext} from "../../../../context/userLoginContext"
 
 export default function SIdeBarMenuItems() {
+
+  const user = useContext(userLoginContext);
+  const [userData, setUserData] = useState("");
+  useEffect(() => {
+    if (window !=="undefined" && user ) {
+      setUserData(user);
+    }
+  }, [user]);
+
+let profilehref = `/admin/profile/${userData._id}`
   const mainList = [
     { href: "/admin", name: "Dashboard", src: "/svg/Dashboard.svg" },
     { href: "/admin/board", name: "Board", src: "/svg/Board.svg" },
@@ -16,7 +29,7 @@ export default function SIdeBarMenuItems() {
   ];
   const settingList = [
     {
-      href: "/admin/profile",
+      href: profilehref,
       name: "Profile",
       src: "/svg/Profile.svg",
     },

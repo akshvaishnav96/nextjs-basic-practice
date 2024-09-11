@@ -1,33 +1,25 @@
 "use client";
 
-import React, { useEffect, useState } from 'react'
-import { userLoginContext } from '../../context/userLoginContext'
-import { verifyLoginToken } from '../../utils/LoginTokenVerification';
+import React, { useEffect, useState } from "react";
+import { userLoginContext } from "../../context/userLoginContext";
+import { verifyLoginToken } from "../../utils/LoginTokenVerification";
 
-export default function UserLoginProvider({children,token}) {
-    const [user,setUser] = useState("");
-    const pathName =process.env.NEXT_PUBLIC_BASE_URL;
+export default function UserLoginProvider({ children }) {
+  const [user, setUser] = useState("");
+  const pathName = process.env.NEXT_PUBLIC_BASE_URL;
 
- 
+  useEffect(() => {
+    const getUserData = async () => {
+      let { user } = await verifyLoginToken();
+      setUser(user);
+    };
 
-      useEffect(()=>{
-          const  getUserData = async ()=>{
-            if(token){
+    getUserData();
+  }, []);
 
-              let {user} = await verifyLoginToken(pathName,token.value)            
-          setUser(user)
-            }
-      }
-  
-      getUserData();
-      
-    },[token])
-    
-    
-    
   return (
-    <userLoginContext.Provider value={user} >
+    <userLoginContext.Provider value={user}>
       {children}
     </userLoginContext.Provider>
-  )
+  );
 }
