@@ -1,6 +1,7 @@
 import Paragraph from "@/components/Paragraph";
 import React from "react";
 import BoardItem from "@/components/admin/boardPage/BordeItems";
+import PageWrapper from "@/components/admin/PageWrapper";
 
 export default function page() {
   const pageData = [
@@ -14,9 +15,10 @@ export default function page() {
   ];
 
   return (
-    <div>
       <div className="h-full ml-14 mt-14 mb-10 md:ml-64">
         <div className="px-3 md:lg:xl:px-40  py-20 bg-opacity-10">
+        
+
           <div className="grid grid-cols-1 md:lg:xl:grid-cols-3 group bg-transparent shadow-xl shadow-neutral-100 border ">
             <BoardItem
               svgBackgroundColor={"red"}
@@ -81,6 +83,5 @@ export default function page() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

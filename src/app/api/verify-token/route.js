@@ -34,7 +34,7 @@ if(!token){
     }
 
     let role = existUser.role;
-
+  
     return Response.json({ status: true, role: role,user:existUser });
   } catch (error) {
     console.log(error);

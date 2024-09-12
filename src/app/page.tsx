@@ -35,7 +35,7 @@ export default function Home() {
 
 
         <ShowMsg />
-      <Navbar />
+   
       {/* hero section */}
       <HeroSection />
       {/* new launch section */}

@@ -1,13 +1,21 @@
+"use client"
 import React from "react";
 import ProfileLogo from "@/components/user/profileLogo"
-import { cookies } from "next/headers";
-import UserLoginProvider from "@/components/Providers/UserLoginProvider";
+import { usePathname } from "next/navigation";
 
 
-export default function Navbar() {
 
-const cookieStore = cookies();
-const token = cookieStore.get("access_token");
+
+export default  function Navbar({hideNavPath}) {
+const pathname = usePathname();
+
+
+
+
+
+const shouldHideFooter = hideNavPath.some(path => pathname.startsWith(path));
+
+ if(shouldHideFooter) return "";
 
 
   return (

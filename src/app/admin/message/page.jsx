@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import PageWrapper from "@/components/admin/PageWrapper";
 
 export default function Deshboard() {
   return (
-    <div className="h-full ml-14 mt-14 mb-10 md:ml-64">
-      <div className="px-3 md:lg:xl:px-20  py-10 bg-opacity-10">
+
+        <PageWrapper>
+
         <div className="mt-4 mx-4">
           <div className="w-full overflow-hidden rounded-lg shadow-xs">
             <div className="w-full overflow-x-auto">
@@ -276,7 +278,7 @@ export default function Deshboard() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        </PageWrapper>
+   
   );
 }

@@ -8,7 +8,7 @@ import {userLoginContext} from "../../../../context/userLoginContext"
 
 export default function SIdeBarMenuItems() {
 
-  const user = useContext(userLoginContext);
+  const {user} = useContext(userLoginContext);
   const [userData, setUserData] = useState("");
   useEffect(() => {
     if (window !=="undefined" && user ) {
@@ -16,7 +16,7 @@ export default function SIdeBarMenuItems() {
     }
   }, [user]);
 
-let profilehref = `/admin/profile/${userData._id}`
+let profilehref = `/profile/${userData._id}`
   const mainList = [
     { href: "/admin", name: "Dashboard", src: "/svg/Dashboard.svg" },
     { href: "/admin/board", name: "Board", src: "/svg/Board.svg" },

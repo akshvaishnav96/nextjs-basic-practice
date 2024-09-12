@@ -1,9 +1,18 @@
+"use client"
 import InputElem from "@/components/InputElem";
 import InputLable from "@/components/InputLable";
 import FormSubmitBtn from "@/components/FormSubmitBtn";
 import { loginHandler } from "../../../utils/formHandler";
+import { useActionState, useContext } from "react";
+import {  useRouter } from "next/navigation";
+import { userLoginContext } from "@/context/userLoginContext";
+import { verifyLoginToken } from "@/utils/LoginTokenVerification";
+
+
 
 export default function Login() {
+  const router = useRouter()
+  const {setUser} = useContext(userLoginContext);
 
   const inputElem = [
     {
@@ -26,9 +35,31 @@ export default function Login() {
     },
   ];
 
+
+
+
+
+
+async function formhandler(formData){
+
+  const response = await loginHandler(formData);
+if(response.success){
+  let { user } = await verifyLoginToken();
+
+  setUser(user)
+
+  router.replace(`/?msg=${response.message}&flag=success`);
+}else{
+  router.push(`/login?msg=${response.message}&flag=error`);
+
+}
+
+}
+
+
   return (
 
-    <form action={loginHandler}>
+    <form action={formhandler} >
       {inputElem.map((item, index) => (
         <div className="mb-4" key={index}>
           <InputLable lablehtmlFor={item.lablefor} text={item.labletext} />

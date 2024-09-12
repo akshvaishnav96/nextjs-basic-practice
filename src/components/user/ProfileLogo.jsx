@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function ProfileLogo() {
   const router = useRouter();
-  const user = useContext(userLoginContext);
+  const {user} = useContext(userLoginContext);
   const [userData, setUserData] = useState("");
   const [LogoutLoading, setLogOutLoading] = useState(false);
 
@@ -68,7 +68,7 @@ export default function ProfileLogo() {
               aria-labelledby="user-menu-button"
             >
               <Link
-                href={`/admin/profile/${user._id}`}
+                href={`/profile/${user._id}`}
                 className="block px-4 py-2 text-sm text-gray-700"
                 role="menuitem"
                 id="user-menu-item-0"

@@ -13,6 +13,9 @@ const roleBasedRoutes = {
 
 // Middleware function
 export async function middleware(request) {
+
+
+  // Add new request headers
   const cookieStore = cookies();
   const token = cookieStore.get("access_token")?.value;
 
@@ -43,7 +46,8 @@ export async function middleware(request) {
  
       
       if (pathname.slice(1).startsWith(role)) {
-        return NextResponse.next();
+        return    NextResponse.next();
+    
       } else {
         return NextResponse.redirect(
           new URL("/login?msg=not authorized&flag=error", request.url)
@@ -77,3 +81,4 @@ export const config = {
     "/user/:path*",
   ],
 };
+

@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
 export async function verifyLoginToken(){
@@ -9,6 +10,8 @@ export async function verifyLoginToken(){
  if(!token){
 return {role:"",status:"",user:""}
  }
+
+ 
   
     const tokenVerify = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/verify-token`,
@@ -18,6 +21,7 @@ return {role:"",status:"",user:""}
             "Content-Type": "application/json",
            token:token
           },
+        cache:"no-cache"
         }
       );
   
@@ -26,6 +30,7 @@ return {role:"",status:"",user:""}
      let status = tokenVerifyData.status;
      let user = tokenVerifyData.user
      
-      return {role,status,user}
   
+      return {role,status,user}
+      
 }
