@@ -1,7 +1,9 @@
 import React from 'react'
 import Heading from '../Heading'
+import Image from 'next/image';
 
 export default function WhyBrikitt() {
+  const arr = new Array(8).fill("");
   return (
     <div className="container text-center">
     <Heading text="Why brik itt" />
@@ -20,38 +22,14 @@ export default function WhyBrikitt() {
       experience and management skills.
     </p>
     <div className="flex flex-wrap m-auto justify-center">
-      <div className="card flex flex-col items-center m-3 p-5 w-1/5">
-        <img src="/4346990.jpg" width="100px" height="100px" alt="" />
+      {arr.map((item,index)=>(
+
+      <div key={index} className="card flex flex-col items-center m-3 p-5 w-1/5">
+        <Image src="/4346990.jpg" width={100} height={100} alt="why brikitt logo"/>
         <span className="text-gray-400 my-2">Choose</span>
       </div>
-      <div className="card flex flex-col items-center m-3 p-5 w-1/5">
-        <img src="/4346990.jpg" width="100px" height="100px" alt="" />
-        <span className="text-gray-400 my-2">Choose</span>
-      </div>
-      <div className="card flex flex-col items-center m-3 p-5 w-1/5">
-        <img src="/4346990.jpg" width="100px" height="100px" alt="" />
-        <span className="text-gray-400 my-2">Choose</span>
-      </div>
-      <div className="card flex flex-col items-center m-3 p-5 w-1/5">
-        <img src="/4346990.jpg" width="100px" height="100px" alt="" />
-        <span className="text-gray-400 my-2">Choose</span>
-      </div>
-      <div className="card flex flex-col items-center m-3 p-5 w-1/5">
-        <img src="/4346990.jpg" width="100px" height="100px" alt="" />
-        <span className="text-gray-400 my-2">Choose</span>
-      </div>
-      <div className="card flex flex-col items-center m-3 p-5 w-1/5">
-        <img src="/4346990.jpg" width="100px" height="100px" alt="" />
-        <span className="text-gray-400 my-2">Choose</span>
-      </div>
-      <div className="card flex flex-col items-center m-3 p-5 w-1/5">
-        <img src="/4346990.jpg" width="100px" height="100px" alt="" />
-        <span className="text-gray-400 my-2">Choose</span>
-      </div>
-      <div className="card flex flex-col items-center m-3 p-5 w-1/5">
-        <img src="/4346990.jpg" width="100px" height="100px" alt="" />
-        <span className="text-gray-400 my-2">Choose</span>
-      </div>
+      ))}
+      
       {/* Repeat the above <div> for each card */}
     </div>
   </div>

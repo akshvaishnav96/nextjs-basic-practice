@@ -2,15 +2,13 @@
 import React from "react";
 import ProfileLogo from "@/components/user/profileLogo"
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 
 
 
 export default  function Navbar({hideNavPath}) {
 const pathname = usePathname();
-
-
-
 
 
 const shouldHideFooter = hideNavPath.some(path => pathname.startsWith(path));
@@ -70,10 +68,12 @@ const shouldHideFooter = hideNavPath.some(path => pathname.startsWith(path));
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img
+              <Image
                 className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                 alt="Your Company"
+                width={40}
+                height={40}
               />
             </div>
             <div className="hidden sm:ml-6 sm:block">

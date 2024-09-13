@@ -21,7 +21,7 @@ return {role:"",status:"",user:""}
             "Content-Type": "application/json",
            token:token
           },
-        cache:"no-cache"
+      
         }
       );
   

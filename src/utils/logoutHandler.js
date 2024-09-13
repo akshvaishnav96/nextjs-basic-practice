@@ -1,3 +1,4 @@
+
 import { revalidatePath } from "next/cache";
 
 
@@ -7,7 +8,7 @@ async function logoutHandler(router) {
 
     
 
-      let res = await fetch("/api/logout", { method: "POST",cache:"no-cache" });
+      let res = await fetch("/api/logout", { method: "POST" });
       let data = await res.json();
    
 

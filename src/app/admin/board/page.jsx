@@ -24,61 +24,61 @@ export default function page() {
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
             <BoardItem
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
             <BoardItem
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
             <BoardItem
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
             <BoardItem
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
             <BoardItem
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
             <BoardItem
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
             <BoardItem
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
             <BoardItem
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
             <BoardItem
               svgBackgroundColor={"red"}
               p1Text={"Home Page"}
               p2Text={"customize home page "}
-              svg={"/svg/home.svg"}
+              svg={"./svg/home.svg"}
             />
           </div>
         </div>

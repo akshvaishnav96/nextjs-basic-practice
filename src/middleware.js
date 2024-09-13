@@ -63,7 +63,7 @@ export async function middleware(request) {
     }
   } else {
     return NextResponse.redirect(
-      new URL(`/?msg=Not Authorized please login&flag=error`, request.url)
+      new URL(`/?msg=Please login&flag=error`, request.url)
     );
   }
 }
